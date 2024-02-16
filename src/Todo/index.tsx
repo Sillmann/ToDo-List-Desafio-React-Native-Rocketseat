@@ -11,24 +11,31 @@ export function Todo() {
   }[];
 
   const [tarefaCadastrada, setTarefaCadastrada] = useState<ListaDeTarefas>([]);
+  const [totalTarefasCriadas, setTotalTarefasCriadas] = useState(0);
+  const [totalTarefasConcluidas, setTotalTarefasConcluidas] = useState(0);
   
   // Controlar digitação da tarefa
   const [tarefa, setTarefa] = useState('');
 
+
   function fazIncluirTarefa() {
+
     if (tarefaCadastrada.includes(tarefa)) {
         return Alert.alert('Tarefa já existe', 'Tarefa já cadastrada!')
     }
 
-    // setTarefaCadastrada(prevState => [...prevState, { tarefa, completada: false }]);
     setTarefaCadastrada((tarefaCadastrada) => [...tarefaCadastrada, { tarefa,  completada: false }]);
     
-    // console.log(tarefaCadastrada);
-
+    setTotalTarefasCriadas(totalTarefasCriadas + 1);
+    
     setTarefa('');
+
   }
 
+
+
   function fazExcluirTarefa(item: string) {
+
     Alert.alert('Remover', `Excluir a tarefa ${item} ?`, [
         {
             text: 'Sim',
@@ -40,27 +47,46 @@ export function Todo() {
             style: 'cancel',
         }
     ])
-}
+
+  }
+
+
 
 function onPressExcluir(item: string) {
-  // setCountCreated(countCreated - 1);
-  // console.log(item);
+
   setTarefaCadastrada(prevState => prevState.filter(i => i.tarefa !== item));
 
-  // if (checked) {
-  //     setCompletedTask(completedTaks - 1);
-  // }
+  setTotalTarefasCriadas(totalTarefasCriadas - 1);
+
+  setTotalTarefasConcluidas(totalTarefasConcluidas - 1);
+
 }
 
-function handleTaskDone(id: string) {
-  // console.log(id);
-  // console.log(tarefaCadastrada);
+
+
+function fazTarefaConcluida(id: string) {
   
-  setTarefaCadastrada((task) => task.map((task) => {
-      task.tarefa === id ? (task.completada = !task.completada) : null
-      return task
+  setTarefaCadastrada((item) => item.map((item) => {
+    item.tarefa === id ? (item.completada = !item.completada) : null;
+    return item
   }))
+
+  setTotalTarefasConcluidas(0);
+
+  var contagem = 0;
+  tarefaCadastrada.map(function(item,indice){
+
+    if (item.completada === true) {
+      contagem = contagem + 1;
+    } 
+
+  })
+
+  setTotalTarefasConcluidas(contagem);
+
 }
+
+
 
   return (
     <View style={estilos.tela}>
@@ -90,11 +116,11 @@ function handleTaskDone(id: string) {
       <View style={estilos.info}>
 
         <Text style={estilos.criadas}>
-          Criadas: 0
+          Criadas: {totalTarefasCriadas}
         </Text>
         
         <Text style={estilos.concluidas}>
-          Concluídas: 0
+          Concluídas: {totalTarefasConcluidas}
         </Text>
 
       </View>
@@ -110,7 +136,7 @@ function handleTaskDone(id: string) {
           style={estilos.item}>
           
           <TouchableOpacity style={estilos.check}
-           onPress={()=>handleTaskDone(item.tarefa)}> 
+           onPress={()=>fazTarefaConcluida(item.tarefa)}> 
           
             <Image
               source={item.completada ? require('../imagens/checked.png') : require('../imagens/check.png') }
