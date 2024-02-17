@@ -1,0 +1,75 @@
+---------------
+LEIAME-TODO.txt
+---------------
+
+template para Expo App Icon & Splash
+https://www.figma.com/community/file/1155362909441341285/expo-app-icon-splash
+
+assets
+------
+icon.png
+adaptive-icon.png
+splash.png
+favicon.png
+
+EAS
+---
+Expo Application Services
+https://expo.dev/
+login: ssilman@gmail.com
+senha: pq@1DEUS
+
+npm install -g eas-cli
+
+eas whoami
+ssilman
+
+eas login
+eas logout
+
+eas build:configure
+Would you like to automatically create an EAS project for @ssilman/desafio01? = YES
+Which platforms would you like to configure for EAS Build? = ANDROID
+
+Será criado um eas.json no projeto
+
+no vscode, adicionar a extensão Expo Tools ( expo.dev )
+
+eas.jon
+-------
+{
+  "cli": {
+    "version": ">= 7.2.0"
+  },
+  "build": {
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  }
+}
+
+or
+
+"build": {
+    "preview": {
+      "android": {
+         "distribution": "internal"
+      }
+    }
+  }
+
+
+eas build -p android --profile preview ( --local não funciona no windows 
+
+https://expo.dev/accounts/ssilman/projects/todo/builds/31eebe11-dfd7-472c-bc5f-a1e001935dc0
+	
+em app.json
+,
+    "extra": {
+      "eas": {
+        "projectId": "aa224432-007a-4ea7-b5ed-c2f207ca886c"
+      }
+    }
+

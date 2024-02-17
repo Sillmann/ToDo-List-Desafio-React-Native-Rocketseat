@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "desafio01",
-    "slug": "desafio01",
+    "name": "todo",
+    "slug": "todo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ssilman.todo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "aa224432-007a-4ea7-b5ed-c2f207ca886c"
+      }
     }
   }
 }

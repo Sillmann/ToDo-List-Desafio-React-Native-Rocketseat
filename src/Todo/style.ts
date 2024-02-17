@@ -51,33 +51,17 @@ export const estilos = StyleSheet.create({
     marginRight: 24
   },
   item: {
-    //  width: '100%',
-      //  flex: 1,
-       flexDirection: 'row',
-       margin: 8,
-
-      //  justifyContent: 'space-between',
-
-    // backgroundColor: '#0D0D0D',
+    flex: 1,
+    flexDirection: 'row',
+    margin: 8,
     height: 64,
-
-     backgroundColor: '#262626',
-    //  gap: 16,
-     borderRadius: 5,
-    // flexDirection: 'row',
-    // alignItems: 'center',
-    // marginBottom: 10,
-  },
-  check: {
-    // width: 56,
-    // height: 56,
-    // borderRadius: 5,
-    // backgroundColor: '#262626',
+    backgroundColor: '#262626',
+    borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  check: {
     marginLeft: 16
-    // backgroundColor: '#5E60CE',
-
   },
   descricao: {
     flex: 1,
@@ -86,7 +70,8 @@ export const estilos = StyleSheet.create({
     color: '#FFF',
     height: 64,
     fontSize: 16,
-    margin: 8,
+    paddingLeft: 18,
+    marginTop: 40,
   },
 
   descricaoTarefaCompletada: {
@@ -96,25 +81,18 @@ export const estilos = StyleSheet.create({
     color: '#808080',
     height: 64,
     fontSize: 16,
-    margin: 8,
+    paddingLeft: 30,
+    marginTop: 40,
     textDecorationLine: 'line-through',
   },
 
-
   trash: {
-    // width: 56,
-    // height: 56,
-    // borderRadius: 5,
-    // backgroundColor: '#262626',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 16
-    // backgroundColor: '#5E60CE',
-
   }, 
 
   empty: {
-    // flexDirection: 'row',
     marginTop: 16,
     alignItems: 'center',
     justifyContent: 'center',
